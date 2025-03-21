@@ -4,9 +4,9 @@ import jakarta.validation.constraints.NotBlank;
 
 public class SentenceRequest {
 
+    @NotBlank(message = "문장은 필수 입력값입니다.")
     private String sentence;
 
-    @NotBlank(message = "문장은 필수 입력값입니다.")
     public String getSentence() {
         return sentence;
     }
