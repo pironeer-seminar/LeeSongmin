@@ -47,7 +47,8 @@ public class PostService {
 
     public PostSearchRes detail(Long postId) {
         Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalArgumentException("조회된 게시글이 없습니다."));
+                //.orElseThrow(() -> new IllegalArgumentException("조회된 게시글이 없습니다."));
+                .orElseThrow(() -> new NotFoundException(PostErrorType))
 
         return new PostSearchRes(post.getUser().getId(), post.getId(), post.getTitle(), post.getContent(),
                 post.getCreatedAt());
